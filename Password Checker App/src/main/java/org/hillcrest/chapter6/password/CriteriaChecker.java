@@ -8,44 +8,50 @@ public class CriteriaChecker {
         boolean hasLower = false;
         boolean hasNumber = false;
         String specialCharacters = "!@#$%^&*()-+=";
-        boolean hasSpecialChar = false;
+        boolean hasSpecial = false;
+
 
         if (password.length() >= 8) {
             criteriaCounter++;
         }
-        for (int i = 1; i <= password.length(); i++) {
+        for (int i = 0; i < password.length(); i++) {
             char ch = password.charAt(i);
             if (Character.isUpperCase(ch)) {
                 hasUpper = true;
+                break;
             }
         }
         if (hasUpper) {
             criteriaCounter++;
         }
-        for (int i = 1; i <= password.length(); i++) {
+        for (int i = 0; i < password.length(); i++) {
             char ch = password.charAt(i);
             if (Character.isLowerCase(ch)) {
                 hasLower = true;
+                break;
             }
         }
         if(hasLower){
             criteriaCounter++;
         }
-        for (int i = 1; i <= password.length(); i++) {
+        for (int i = 0; i < password.length(); i++) {
             char ch = password.charAt(i);
             if (Character.isDigit(ch)) {
                 hasNumber = true;
+                break;
             }
         }
         if (hasNumber) {
             criteriaCounter++;
         }
-        for (int i = 1; i <= password.length(); i++) {
-            String ch = password.substring(i, i++);
-            if (specialCharacters.contains(ch)) {
-                hasSpecialChar = true;
+        for (int i = 0; i < password.length(); i++) {
+            String ch = String.valueOf(password.charAt(i));
+            if(specialCharacters.contains(ch)) {
+                hasSpecial = true;
+                break;
             }
-            if (hasSpecialChar)
+        }
+            if (hasSpecial){
                 criteriaCounter++;
         }
 
