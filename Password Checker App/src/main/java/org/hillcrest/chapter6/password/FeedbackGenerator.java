@@ -1,8 +1,17 @@
 package org.hillcrest.chapter6.password;
 
+/**
+ * Utility class that generates feedback to help user improve their password.
+ */
 public class FeedbackGenerator {
     //utility class for generating feedback based on password
 
+    /**
+     * Generates feedback message describing which criteria their password is
+     * missing and how to improve.
+     * @param password the password to evaluate.
+     * @return feddback string, or a success message.
+     */
     public static String generateFeedback (String password){
         String feedback = "";
 

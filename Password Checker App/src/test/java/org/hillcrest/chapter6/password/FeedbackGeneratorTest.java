@@ -42,7 +42,7 @@ public class FeedbackGeneratorTest {
     @Test public void testFeedback_MissingSpecialCharacter() {
         String password = "Abcdefg1";
         String feedback = FeedbackGenerator.generateFeedback(password);
-        assertTrue(feedback.contains("Include at least one special character."));
+        assertTrue(feedback.contains("Include at least one special character. "));
     }
 
     @Test
@@ -54,5 +54,17 @@ public class FeedbackGeneratorTest {
         assertTrue(feedback.contains("Add at least one uppercase letter."));
         assertTrue(feedback.contains("Add at least one number."));
         assertTrue(feedback.contains("Include at least one special character."));
+    }
+
+    @Test
+    public void testFeedback_OnlyLengthMissing() {
+        String password = "Ab1!";
+        String feedback = FeedbackGenerator.generateFeedback(password);
+
+        assertTrue(feedback.contains("Increase the length to at least 8 characters."));
+        assertFalse(feedback.contains("Add at least one uppercase letter."));
+        assertFalse(feedback.contains("Add at least one lowercase letter."));
+        assertFalse(feedback.contains("Add at least one number."));
+        assertFalse(feedback.contains("Include at least one special character."));
     }
 }

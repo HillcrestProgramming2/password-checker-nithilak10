@@ -3,6 +3,7 @@ package org.hillcrest.chapter6.password;
 import java.util.Scanner;
 
 public class PasswordApp {
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -16,7 +17,7 @@ public class PasswordApp {
 
         String feedback = FeedbackGenerator.generateFeedback(password);
 
-        System.out.println("\nPassword Strength: " + strength);
+        System.out.println("\nPassword Strength: " + strength + " (" + score + "/5)");
         System.out.println("Feedback: ");
         System.out.println(feedback);
     }
